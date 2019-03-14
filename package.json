@@ -1,0 +1,34 @@
+{
+  "name": "columns-within-columns",
+  "version": "1.0.0",
+  "description": "A module that will render code as columns within columns in an attempt to show how it is executed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimkang/columns-within-columns.git"
+  },
+  "keywords": [
+    "code",
+    "browser"
+  ],
+  "author": "Jim Kang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimkang/columns-within-columns/issues"
+  },
+  "homepage": "https://github.com/jimkang/columns-within-columns",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.5.0",
+    "minimist": "^1.2.0",
+    "uglify-es": "^3.1.9"
+  },
+  "dependencies": {
+    "accessor": "^2.0.0",
+    "d3-selection": "^1.3.2"
+  }
+}
