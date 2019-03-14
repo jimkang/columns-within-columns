@@ -15,7 +15,7 @@ Usage
 
     renderColumns({
       rootSelector: '#columns-root',
-      start: { file: 'main.c', line: 40 },
+      initialColumn: { file: 'main.c', lines: [40, 70] },
       lineAnnotations: [
         {"file":"main.c","lineNumber":40,"text":"int main(int argc, char *argv[])","next":{"line":41,"file":"main.c"}},
         {"file":"main.c","lineNumber":41,"text":"{","next":{"line":42,"file":"main.c"}},

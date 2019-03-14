@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "accessor": "^2.0.0",
-    "d3-selection": "^1.3.2"
+    "d3-selection": "^1.4.0"
   }
 }
