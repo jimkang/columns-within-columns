@@ -64,7 +64,7 @@ Annotation objects can have the following properties:
 
 It looks for annotations in a line to be after this string: `//||` and in the form of a JSON string.
 
-- **next**: This tells the renderer	where to go when the user clicks next while on this line.
+- **next**: This tells the renderer where to go when the user clicks next while on this line.
 
       goto PL;//||{"next": {"line": 62}}
 
@@ -75,6 +75,10 @@ It looks for annotations in a line to be after this string: `//||` and in the fo
 - **expand**: Tell the renderer that, when the user clicks on the line, it should display the specified lines of code below it.
 
       play_level(); //||{"expand": {"file": "play.c", "lines": [151, 406]}}
+
+There is a special special annotation: `//||block||{"note": "These ten lines do this specific thing."}` Or: `//||block||`.
+
+**block** tells the parser that the previous block is ending, a new one is starting, and the note, if there is one, applies to all of the lines in the block.
 
 Development
 ----

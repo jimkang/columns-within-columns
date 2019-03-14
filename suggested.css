@@ -41,12 +41,24 @@ button {
   box-shadow: #444 0 0 4px;
 }
 
+.code-block {
+  display: flex;
+}
+
+.block-note {
+  background-color: #ddd;
+}
+
 .code-unit {
   display: flex;
 }
 
 .unit-text {
   margin: 0;
+}
+
+.unit-note {
+  padding: 0.5em;
 }
 
 .instruction {
