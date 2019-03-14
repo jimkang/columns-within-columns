@@ -11,43 +11,43 @@ Installation
 Usage
 ----
 
-		var renderColumns = require('columns-within-columns');
+	var renderColumns = require('columns-within-columns');
 
-		renderColumns({
-			rootSelector: '#columns-root',
-			start: { file: 'main.c', line: 40 },
-			lineAnnotations: [
-				{"file":"main.c","lineNumber":40,"text":"int main(int argc, char *argv[])","next":{"line":41,"file":"main.c"}},
-				{"file":"main.c","lineNumber":41,"text":"{","next":{"line":42,"file":"main.c"}},
-				{"file":"main.c","lineNumber":42,"text":"\t/* Save the setuid we have got, then turn back into the player */","next":{"line":43,"file":"main.c"}},
-				{"file":"main.c","lineNumber":43,"text":"//\tsaved_uid = geteuid();","next":{"line":44,"file":"main.c"}},
-				{"file":"main.c","lineNumber":44,"text":"//\tsetuid(true_uid = getuid());","next":{"line":45,"file":"main.c"}},
-				{"file":"main.c","lineNumber":45,"text":"","next":{"line":46,"file":"main.c"}},
-				{"file":"main.c","lineNumber":46,"text":"\tif (init(argc, argv))\t/* restored game */","next":{"line":47,"file":"main.c"}},
-				{"file":"main.c","lineNumber":47,"text":"\t{","next":{"line":48,"file":"main.c"}},
-				{"file":"main.c","lineNumber":48,"text":"\t\tgoto PL;","next":{"line":62,"file":"main.c"}},
-				{"file":"main.c","lineNumber":49,"text":"\t}","next":{"line":50,"file":"main.c"}},
-				{"file":"main.c","lineNumber":50,"text":"","next":{"line":51,"file":"main.c"}},
-				{"file":"main.c","lineNumber":51,"text":"\tfor (;;)","next":{"line":52,"file":"main.c"}},
-				{"file":"main.c","lineNumber":52,"text":"\t{","next":{"line":53,"file":"main.c"}},
-				{"file":"main.c","lineNumber":53,"text":"    ","note":"Make all the things that go in the map.","next":{"line":54,"file":"main.c"}},
-				{"file":"main.c","lineNumber":54,"text":"\t\tclear_level();","next":{"line":55,"file":"main.c"}},
-				{"file":"main.c","lineNumber":55,"text":"\t\tmake_level();","next":{"line":56,"file":"main.c"}},
-				{"file":"main.c","lineNumber":56,"text":"\t\tput_objects();","next":{"line":57,"file":"main.c"}},
-				{"file":"main.c","lineNumber":57,"text":"\t\tput_stairs();","next":{"line":58,"file":"main.c"}},
-				{"file":"main.c","lineNumber":58,"text":"\t\tadd_traps();","next":{"line":59,"file":"main.c"}},
-				{"file":"main.c","lineNumber":59,"text":"\t\tput_mons();","next":{"line":60,"file":"main.c"}},
-				{"file":"main.c","lineNumber":60,"text":"\t\tput_player(party_room);","next":{"line":61,"file":"main.c"}},
-				{"file":"main.c","lineNumber":61,"text":"\t\tprint_stats(STAT_ALL);","next":{"line":62,"file":"main.c"}},
-				{"file":"main.c","lineNumber":62,"text":"PL:\t\t","next":{"line":63,"file":"main.c"}},
-				{"file":"main.c","lineNumber":63,"text":"    ","note":"Now, allow them all to interact.","next":{"line":64,"file":"main.c"}},
-				{"file":"main.c","lineNumber":64,"text":"\t\tplay_level(); ","expand":{"file":"play.c","lines":[151,406]},"next":{"line":65,"file":"main.c"}},
-				{"file":"main.c","lineNumber":65,"text":"\t\tfree_stuff(&level_objects);","next":{"line":66,"file":"main.c"}},
-				{"file":"main.c","lineNumber":66,"text":"\t\tfree_stuff(&level_monsters);","next":{"line":67,"file":"main.c"}},
-				{"file":"main.c","lineNumber":67,"text":"\t}","next":{"line":51,"file":"main.c"}},
-				{"file":"main.c","lineNumber":68,"text":"","next":{"line":69,"file":"main.c"}}
-			]
-		});
+	renderColumns({
+		rootSelector: '#columns-root',
+		start: { file: 'main.c', line: 40 },
+		lineAnnotations: [
+			{"file":"main.c","lineNumber":40,"text":"int main(int argc, char *argv[])","next":{"line":41,"file":"main.c"}},
+			{"file":"main.c","lineNumber":41,"text":"{","next":{"line":42,"file":"main.c"}},
+			{"file":"main.c","lineNumber":42,"text":"\t/* Save the setuid we have got, then turn back into the player */","next":{"line":43,"file":"main.c"}},
+			{"file":"main.c","lineNumber":43,"text":"//\tsaved_uid = geteuid();","next":{"line":44,"file":"main.c"}},
+			{"file":"main.c","lineNumber":44,"text":"//\tsetuid(true_uid = getuid());","next":{"line":45,"file":"main.c"}},
+			{"file":"main.c","lineNumber":45,"text":"","next":{"line":46,"file":"main.c"}},
+			{"file":"main.c","lineNumber":46,"text":"\tif (init(argc, argv))\t/* restored game */","next":{"line":47,"file":"main.c"}},
+			{"file":"main.c","lineNumber":47,"text":"\t{","next":{"line":48,"file":"main.c"}},
+			{"file":"main.c","lineNumber":48,"text":"\t\tgoto PL;","next":{"line":62,"file":"main.c"}},
+			{"file":"main.c","lineNumber":49,"text":"\t}","next":{"line":50,"file":"main.c"}},
+			{"file":"main.c","lineNumber":50,"text":"","next":{"line":51,"file":"main.c"}},
+			{"file":"main.c","lineNumber":51,"text":"\tfor (;;)","next":{"line":52,"file":"main.c"}},
+			{"file":"main.c","lineNumber":52,"text":"\t{","next":{"line":53,"file":"main.c"}},
+			{"file":"main.c","lineNumber":53,"text":"    ","note":"Make all the things that go in the map.","next":{"line":54,"file":"main.c"}},
+			{"file":"main.c","lineNumber":54,"text":"\t\tclear_level();","next":{"line":55,"file":"main.c"}},
+			{"file":"main.c","lineNumber":55,"text":"\t\tmake_level();","next":{"line":56,"file":"main.c"}},
+			{"file":"main.c","lineNumber":56,"text":"\t\tput_objects();","next":{"line":57,"file":"main.c"}},
+			{"file":"main.c","lineNumber":57,"text":"\t\tput_stairs();","next":{"line":58,"file":"main.c"}},
+			{"file":"main.c","lineNumber":58,"text":"\t\tadd_traps();","next":{"line":59,"file":"main.c"}},
+			{"file":"main.c","lineNumber":59,"text":"\t\tput_mons();","next":{"line":60,"file":"main.c"}},
+			{"file":"main.c","lineNumber":60,"text":"\t\tput_player(party_room);","next":{"line":61,"file":"main.c"}},
+			{"file":"main.c","lineNumber":61,"text":"\t\tprint_stats(STAT_ALL);","next":{"line":62,"file":"main.c"}},
+			{"file":"main.c","lineNumber":62,"text":"PL:\t\t","next":{"line":63,"file":"main.c"}},
+			{"file":"main.c","lineNumber":63,"text":"    ","note":"Now, allow them all to interact.","next":{"line":64,"file":"main.c"}},
+			{"file":"main.c","lineNumber":64,"text":"\t\tplay_level(); ","expand":{"file":"play.c","lines":[151,406]},"next":{"line":65,"file":"main.c"}},
+			{"file":"main.c","lineNumber":65,"text":"\t\tfree_stuff(&level_objects);","next":{"line":66,"file":"main.c"}},
+			{"file":"main.c","lineNumber":66,"text":"\t\tfree_stuff(&level_monsters);","next":{"line":67,"file":"main.c"}},
+			{"file":"main.c","lineNumber":67,"text":"\t}","next":{"line":51,"file":"main.c"}},
+			{"file":"main.c","lineNumber":68,"text":"","next":{"line":69,"file":"main.c"}}
+		]
+	});
 
 To generate line annotation objects, you can use `parse-source-file.js`. `parse-source-to-array.sh` has an example of using it on a lot of source files to create a single JSON file that has one array of annotation objects in it.
 
@@ -66,15 +66,15 @@ It looks for annotations in a line to be after this string: `//||` and in the fo
 
 - **next**: This tells the renderer	where to go when the user clicks next while on this line.
 
-    goto PL;//||{"next": {"line": 62}}
+      goto PL;//||{"next": {"line": 62}}
 
 - **note**: This tells the renderer to display a note next to the code. Or, if there is no code on that line, to just display the note.
 
-    //||{"note": "Make all the things that go in the map."}
+      //||{"note": "Make all the things that go in the map."}
 
 - **expand**: Tell the renderer that, when the user clicks on the line, it should display the specified lines of code below it.
 
-		play_level(); //||{"expand": {"file": "play.c", "lines": [151, 406]}}
+      play_level(); //||{"expand": {"file": "play.c", "lines": [151, 406]}}
 
 Development
 ----
