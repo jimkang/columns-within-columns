@@ -487,7 +487,7 @@
 {"file":"hit.c","lineNumber":486,"text":"\tdamage += ((((rogue.exp + ring_exp) - r_rings) + 1) / 2);","next":{"line":487,"file":"hit.c"}},
 {"file":"hit.c","lineNumber":487,"text":"\treturn(damage);","next":{"line":488,"file":"hit.c"}},
 {"file":"hit.c","lineNumber":488,"text":"}","next":{"line":489,"file":"hit.c"}},
-{"file":"hit.c","lineNumber":489,"text":""}
+{"file":"hit.c","lineNumber":489,"text":""},
 {"file":"init.c","lineNumber":1,"text":"/* init.c */","next":{"line":2,"file":"init.c"}},
 {"file":"init.c","lineNumber":2,"text":"","next":{"line":3,"file":"init.c"}},
 {"file":"init.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"init.c"}},
@@ -851,7 +851,7 @@
 {"file":"init.c","lineNumber":361,"text":"\t}","next":{"line":362,"file":"init.c"}},
 {"file":"init.c","lineNumber":362,"text":"\t(*s)[i] = '\\0';","next":{"line":363,"file":"init.c"}},
 {"file":"init.c","lineNumber":363,"text":"}","next":{"line":364,"file":"init.c"}},
-{"file":"init.c","lineNumber":364,"text":""}
+{"file":"init.c","lineNumber":364,"text":""},
 {"file":"instruct.c","lineNumber":1,"text":"/*","next":{"line":2,"file":"instruct.c"}},
 {"file":"instruct.c","lineNumber":2,"text":" *\tInstructions command for rogue clone. Alan Cox 1992","next":{"line":3,"file":"instruct.c"}},
 {"file":"instruct.c","lineNumber":3,"text":" *\tModified Sep 2006 Greg Kennedy - include instructions","next":{"line":4,"file":"instruct.c"}},
@@ -938,7 +938,7 @@
 {"file":"instruct.c","lineNumber":84,"text":"\t}","next":{"line":85,"file":"instruct.c"}},
 {"file":"instruct.c","lineNumber":85,"text":"\trefresh();","next":{"line":86,"file":"instruct.c"}},
 {"file":"instruct.c","lineNumber":86,"text":"}","next":{"line":87,"file":"instruct.c"}},
-{"file":"instruct.c","lineNumber":87,"text":""}
+{"file":"instruct.c","lineNumber":87,"text":""},
 {"file":"inventory.c","lineNumber":1,"text":"/* inventory.c */","next":{"line":2,"file":"inventory.c"}},
 {"file":"inventory.c","lineNumber":2,"text":"","next":{"line":3,"file":"inventory.c"}},
 {"file":"inventory.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"inventory.c"}},
@@ -1469,7 +1469,7 @@
 {"file":"inventory.c","lineNumber":528,"text":"\t\t}","next":{"line":529,"file":"inventory.c"}},
 {"file":"inventory.c","lineNumber":529,"text":"\t}","next":{"line":530,"file":"inventory.c"}},
 {"file":"inventory.c","lineNumber":530,"text":"}","next":{"line":531,"file":"inventory.c"}},
-{"file":"inventory.c","lineNumber":531,"text":""}
+{"file":"inventory.c","lineNumber":531,"text":""},
 {"file":"level.c","lineNumber":1,"text":"/* level.c */","next":{"line":2,"file":"level.c"}},
 {"file":"level.c","lineNumber":2,"text":"","next":{"line":3,"file":"level.c"}},
 {"file":"level.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"level.c"}},
@@ -2476,7 +2476,7 @@
 {"file":"level.c","lineNumber":1004,"text":"\t\tswap(random_rooms[x], random_rooms[y]);","next":{"line":1005,"file":"level.c"}},
 {"file":"level.c","lineNumber":1005,"text":"\t}","next":{"line":1006,"file":"level.c"}},
 {"file":"level.c","lineNumber":1006,"text":"}","next":{"line":1007,"file":"level.c"}},
-{"file":"level.c","lineNumber":1007,"text":""}
+{"file":"level.c","lineNumber":1007,"text":""},
 {"file":"machdep.c","lineNumber":1,"text":"/* machdep.c */","next":{"line":2,"file":"machdep.c"}},
 {"file":"machdep.c","lineNumber":2,"text":"","next":{"line":3,"file":"machdep.c"}},
 {"file":"machdep.c","lineNumber":3,"text":"#include <pwd.h>","next":{"line":4,"file":"machdep.c"}},
@@ -2830,7 +2830,7 @@
 {"file":"machdep.c","lineNumber":351,"text":"{","next":{"line":352,"file":"machdep.c"}},
 {"file":"machdep.c","lineNumber":352,"text":"\texit(status);","next":{"line":353,"file":"machdep.c"}},
 {"file":"machdep.c","lineNumber":353,"text":"}","next":{"line":354,"file":"machdep.c"}},
-{"file":"machdep.c","lineNumber":354,"text":""}
+{"file":"machdep.c","lineNumber":354,"text":""},
 {"file":"main.c","lineNumber":1,"text":"/* main.c */","next":{"line":2,"file":"main.c"}},
 {"file":"main.c","lineNumber":2,"text":"","next":{"line":3,"file":"main.c"}},
 {"file":"main.c","lineNumber":3,"text":"#include <stdio.h>","next":{"line":4,"file":"main.c"}},
@@ -2902,7 +2902,7 @@
 {"file":"main.c","lineNumber":69,"text":"\treturn 0;","next":{"line":70,"file":"main.c"}},
 {"file":"main.c","lineNumber":70,"text":"}","next":{"line":71,"file":"main.c"}},
 {"file":"main.c","lineNumber":71,"text":"","next":{"line":72,"file":"main.c"}},
-{"file":"main.c","lineNumber":72,"text":""}
+{"file":"main.c","lineNumber":72,"text":""},
 {"file":"message.c","lineNumber":1,"text":"/* message.c */","next":{"line":2,"file":"message.c"}},
 {"file":"message.c","lineNumber":2,"text":"","next":{"line":3,"file":"message.c"}},
 {"file":"message.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"message.c"}},
@@ -3292,7 +3292,7 @@
 {"file":"message.c","lineNumber":387,"text":"\t}","next":{"line":388,"file":"message.c"}},
 {"file":"message.c","lineNumber":388,"text":"\treturn(-1);","next":{"line":389,"file":"message.c"}},
 {"file":"message.c","lineNumber":389,"text":"}","next":{"line":390,"file":"message.c"}},
-{"file":"message.c","lineNumber":390,"text":""}
+{"file":"message.c","lineNumber":390,"text":""},
 {"file":"monster.c","lineNumber":1,"text":"/* monster.c */","next":{"line":2,"file":"monster.c"}},
 {"file":"monster.c","lineNumber":2,"text":"","next":{"line":3,"file":"monster.c"}},
 {"file":"monster.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"monster.c"}},
@@ -4240,7 +4240,7 @@
 {"file":"monster.c","lineNumber":945,"text":"\t\tmonster = monster->next_monster;","next":{"line":946,"file":"monster.c"}},
 {"file":"monster.c","lineNumber":946,"text":"\t}","next":{"line":947,"file":"monster.c"}},
 {"file":"monster.c","lineNumber":947,"text":"}","next":{"line":948,"file":"monster.c"}},
-{"file":"monster.c","lineNumber":948,"text":""}
+{"file":"monster.c","lineNumber":948,"text":""},
 {"file":"move.c","lineNumber":1,"text":"/* move.c */","next":{"line":2,"file":"move.c"}},
 {"file":"move.c","lineNumber":2,"text":"","next":{"line":3,"file":"move.c"}},
 {"file":"move.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"move.c"}},
@@ -4927,7 +4927,7 @@
 {"file":"move.c","lineNumber":684,"text":"\t\tprint_stats(STAT_HP);","next":{"line":685,"file":"move.c"}},
 {"file":"move.c","lineNumber":685,"text":"\t}","next":{"line":686,"file":"move.c"}},
 {"file":"move.c","lineNumber":686,"text":"}","next":{"line":687,"file":"move.c"}},
-{"file":"move.c","lineNumber":687,"text":""}
+{"file":"move.c","lineNumber":687,"text":""},
 {"file":"object.c","lineNumber":1,"text":"/* object.c */","next":{"line":2,"file":"object.c"}},
 {"file":"object.c","lineNumber":2,"text":"","next":{"line":3,"file":"object.c"}},
 {"file":"object.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"object.c"}},
@@ -5802,7 +5802,7 @@
 {"file":"object.c","lineNumber":872,"text":"\t}","next":{"line":873,"file":"object.c"}},
 {"file":"object.c","lineNumber":873,"text":"\treturn(get_rand((n + 1), (n + PARTY_TIME)));","next":{"line":874,"file":"object.c"}},
 {"file":"object.c","lineNumber":874,"text":"}","next":{"line":875,"file":"object.c"}},
-{"file":"object.c","lineNumber":875,"text":""}
+{"file":"object.c","lineNumber":875,"text":""},
 {"file":"pack.c","lineNumber":1,"text":"/* pack.c */","next":{"line":2,"file":"pack.c"}},
 {"file":"pack.c","lineNumber":2,"text":"","next":{"line":3,"file":"pack.c"}},
 {"file":"pack.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"pack.c"}},
@@ -6399,7 +6399,7 @@
 {"file":"pack.c","lineNumber":594,"text":"    }","next":{"line":595,"file":"pack.c"}},
 {"file":"pack.c","lineNumber":595,"text":"}","next":{"line":596,"file":"pack.c"}},
 {"file":"pack.c","lineNumber":596,"text":"","next":{"line":597,"file":"pack.c"}},
-{"file":"pack.c","lineNumber":597,"text":""}
+{"file":"pack.c","lineNumber":597,"text":""},
 {"file":"play.c","lineNumber":1,"text":"/* play.c */","next":{"line":2,"file":"play.c"}},
 {"file":"play.c","lineNumber":2,"text":"","next":{"line":3,"file":"play.c"}},
 {"file":"play.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"play.c"}},
@@ -6806,7 +6806,7 @@
 {"file":"play.c","lineNumber":404,"text":"\t\t}","next":{"line":405,"file":"play.c"}},
 {"file":"play.c","lineNumber":405,"text":"\t}","next":{"line":156,"file":"play.c"}},
 {"file":"play.c","lineNumber":406,"text":"}","next":{"line":407,"file":"play.c"}},
-{"file":"play.c","lineNumber":407,"text":""}
+{"file":"play.c","lineNumber":407,"text":""},
 {"file":"random.c","lineNumber":1,"text":"#include <stdlib.h>","next":{"line":2,"file":"random.c"}},
 {"file":"random.c","lineNumber":2,"text":"#include \"random.h\"","next":{"line":3,"file":"random.c"}},
 {"file":"random.c","lineNumber":3,"text":"","next":{"line":4,"file":"random.c"}},
@@ -6824,7 +6824,7 @@
 {"file":"random.c","lineNumber":15,"text":"{","next":{"line":16,"file":"random.c"}},
 {"file":"random.c","lineNumber":16,"text":"\treturn get_rand(0,1);","next":{"line":17,"file":"random.c"}},
 {"file":"random.c","lineNumber":17,"text":"}","next":{"line":18,"file":"random.c"}},
-{"file":"random.c","lineNumber":18,"text":""}
+{"file":"random.c","lineNumber":18,"text":""},
 {"file":"ring.c","lineNumber":1,"text":"/* ring.c */","next":{"line":2,"file":"ring.c"}},
 {"file":"ring.c","lineNumber":2,"text":"","next":{"line":3,"file":"ring.c"}},
 {"file":"ring.c","lineNumber":3,"text":"#include <stdio.h>","next":{"line":4,"file":"ring.c"}},
@@ -7154,7 +7154,7 @@
 {"file":"ring.c","lineNumber":327,"text":"\t\trelight();","next":{"line":328,"file":"ring.c"}},
 {"file":"ring.c","lineNumber":328,"text":"\t}","next":{"line":329,"file":"ring.c"}},
 {"file":"ring.c","lineNumber":329,"text":"}","next":{"line":330,"file":"ring.c"}},
-{"file":"ring.c","lineNumber":330,"text":""}
+{"file":"ring.c","lineNumber":330,"text":""},
 {"file":"room.c","lineNumber":1,"text":"/* room.c */","next":{"line":2,"file":"room.c"}},
 {"file":"room.c","lineNumber":2,"text":"","next":{"line":3,"file":"room.c"}},
 {"file":"room.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"room.c"}},
@@ -7646,7 +7646,7 @@
 {"file":"room.c","lineNumber":489,"text":"\t}","next":{"line":490,"file":"room.c"}},
 {"file":"room.c","lineNumber":490,"text":"\treturn(0);","next":{"line":491,"file":"room.c"}},
 {"file":"room.c","lineNumber":491,"text":"}","next":{"line":492,"file":"room.c"}},
-{"file":"room.c","lineNumber":492,"text":""}
+{"file":"room.c","lineNumber":492,"text":""},
 {"file":"save.c","lineNumber":1,"text":"/* save.c */","next":{"line":2,"file":"save.c"}},
 {"file":"save.c","lineNumber":2,"text":"","next":{"line":3,"file":"save.c"}},
 {"file":"save.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"save.c"}},
@@ -8104,7 +8104,7 @@
 {"file":"save.c","lineNumber":455,"text":"\t}","next":{"line":456,"file":"save.c"}},
 {"file":"save.c","lineNumber":456,"text":"\treturn(0);","next":{"line":457,"file":"save.c"}},
 {"file":"save.c","lineNumber":457,"text":"}","next":{"line":458,"file":"save.c"}},
-{"file":"save.c","lineNumber":458,"text":""}
+{"file":"save.c","lineNumber":458,"text":""},
 {"file":"score.c","lineNumber":1,"text":"/* score.c */","next":{"line":2,"file":"score.c"}},
 {"file":"score.c","lineNumber":2,"text":"","next":{"line":3,"file":"score.c"}},
 {"file":"score.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"score.c"}},
@@ -8713,7 +8713,7 @@
 {"file":"score.c","lineNumber":606,"text":"\tclean_up(\"sorry, score file is out of order\");","next":{"line":607,"file":"score.c"}},
 {"file":"score.c","lineNumber":607,"text":"}","next":{"line":608,"file":"score.c"}},
 {"file":"score.c","lineNumber":608,"text":"","next":{"line":609,"file":"score.c"}},
-{"file":"score.c","lineNumber":609,"text":""}
+{"file":"score.c","lineNumber":609,"text":""},
 {"file":"score.old.c","lineNumber":1,"text":"/*","next":{"line":2,"file":"score.old.c"}},
 {"file":"score.old.c","lineNumber":2,"text":" * score.c","next":{"line":3,"file":"score.old.c"}},
 {"file":"score.old.c","lineNumber":3,"text":" *","next":{"line":4,"file":"score.old.c"}},
@@ -9355,7 +9355,7 @@
 {"file":"score.old.c","lineNumber":639,"text":"\tclean_up(\"sorry, score file is out of order\");","next":{"line":640,"file":"score.old.c"}},
 {"file":"score.old.c","lineNumber":640,"text":"}","next":{"line":641,"file":"score.old.c"}},
 {"file":"score.old.c","lineNumber":641,"text":"","next":{"line":642,"file":"score.old.c"}},
-{"file":"score.old.c","lineNumber":642,"text":""}
+{"file":"score.old.c","lineNumber":642,"text":""},
 {"file":"special_hit.c","lineNumber":1,"text":"/* special_hit.c */","next":{"line":2,"file":"special_hit.c"}},
 {"file":"special_hit.c","lineNumber":2,"text":"","next":{"line":3,"file":"special_hit.c"}},
 {"file":"special_hit.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"special_hit.c"}},
@@ -9956,7 +9956,7 @@
 {"file":"special_hit.c","lineNumber":598,"text":"\t\t}","next":{"line":599,"file":"special_hit.c"}},
 {"file":"special_hit.c","lineNumber":599,"text":"\t}","next":{"line":600,"file":"special_hit.c"}},
 {"file":"special_hit.c","lineNumber":600,"text":"}","next":{"line":601,"file":"special_hit.c"}},
-{"file":"special_hit.c","lineNumber":601,"text":""}
+{"file":"special_hit.c","lineNumber":601,"text":""},
 {"file":"throw.c","lineNumber":1,"text":"/* throw.c */","next":{"line":2,"file":"throw.c"}},
 {"file":"throw.c","lineNumber":2,"text":"","next":{"line":3,"file":"throw.c"}},
 {"file":"throw.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"throw.c"}},
@@ -10289,7 +10289,7 @@
 {"file":"throw.c","lineNumber":330,"text":"\t\tbreak;","next":{"line":331,"file":"throw.c"}},
 {"file":"throw.c","lineNumber":331,"text":"\t}","next":{"line":332,"file":"throw.c"}},
 {"file":"throw.c","lineNumber":332,"text":"}","next":{"line":333,"file":"throw.c"}},
-{"file":"throw.c","lineNumber":333,"text":""}
+{"file":"throw.c","lineNumber":333,"text":""},
 {"file":"trap.c","lineNumber":1,"text":"/* trap.c */","next":{"line":2,"file":"trap.c"}},
 {"file":"trap.c","lineNumber":2,"text":"","next":{"line":3,"file":"trap.c"}},
 {"file":"trap.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"trap.c"}},
@@ -10584,7 +10584,7 @@
 {"file":"trap.c","lineNumber":292,"text":"\t\t}","next":{"line":293,"file":"trap.c"}},
 {"file":"trap.c","lineNumber":293,"text":"\t}","next":{"line":294,"file":"trap.c"}},
 {"file":"trap.c","lineNumber":294,"text":"}","next":{"line":295,"file":"trap.c"}},
-{"file":"trap.c","lineNumber":295,"text":""}
+{"file":"trap.c","lineNumber":295,"text":""},
 {"file":"use.c","lineNumber":1,"text":"/* use.c */","next":{"line":2,"file":"use.c"}},
 {"file":"use.c","lineNumber":2,"text":"","next":{"line":3,"file":"use.c"}},
 {"file":"use.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"use.c"}},
@@ -11253,7 +11253,7 @@
 {"file":"use.c","lineNumber":666,"text":"\t\tobj = obj->next_object;","next":{"line":667,"file":"use.c"}},
 {"file":"use.c","lineNumber":667,"text":"\t}","next":{"line":668,"file":"use.c"}},
 {"file":"use.c","lineNumber":668,"text":"}","next":{"line":669,"file":"use.c"}},
-{"file":"use.c","lineNumber":669,"text":""}
+{"file":"use.c","lineNumber":669,"text":""},
 {"file":"zap.c","lineNumber":1,"text":"/* zap.c */","next":{"line":2,"file":"zap.c"}},
 {"file":"zap.c","lineNumber":2,"text":"","next":{"line":3,"file":"zap.c"}},
 {"file":"zap.c","lineNumber":3,"text":"#include <ncurses.h>","next":{"line":4,"file":"zap.c"}},
@@ -11497,5 +11497,4 @@
 {"file":"zap.c","lineNumber":241,"text":"\t\t}","next":{"line":242,"file":"zap.c"}},
 {"file":"zap.c","lineNumber":242,"text":"\t}","next":{"line":243,"file":"zap.c"}},
 {"file":"zap.c","lineNumber":243,"text":"}","next":{"line":244,"file":"zap.c"}},
-{"file":"zap.c","lineNumber":244,"text":""}
-]
+{"file":"zap.c","lineNumber":244,"text":""}]

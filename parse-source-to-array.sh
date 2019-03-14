@@ -13,9 +13,10 @@ printf "[\n" > meta/rogue.json
 for file in ${root}/*.c
 
 do
-	echo ${file}
-	node parse-source-file.js --file ${file} --trail "," --skipTrailOnLastLine yes >> ${arrayfile}
+	echo $file
+	node parse-source-file.js --file ${file} --trail "," >> $arrayfile
 done
 
-printf "]\n" >> ${arrayfile}
+truncate -s-2 $arrayfile
+printf "]\n" >> $arrayfile
 
