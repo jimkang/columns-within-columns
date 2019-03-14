@@ -67,6 +67,19 @@ button {
   text-align: center;
 }
 
+#next-button {
+  display: fixed;
+}
+
+.expandable {
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.expandable::after {
+  content: '↕';
+}
+
 @media all and (max-height: 568px) {
   body {
     font-size: 18px;

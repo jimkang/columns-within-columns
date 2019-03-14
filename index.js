@@ -1,9 +1,13 @@
 var d3 = require('d3-selection');
+var getColumnFromBlocks = require('./get-column-from-blocks');
+var callNextTick = require('call-next-tick');
 var accessor = require('accessor')();
 
-function renderCodeColumn({ rootSelector, initialColumn, blocks }) {
-  var root = d3.select(rootSelector);
-  var column = getColumn(Object.assign({ blocks }, initialColumn));
+function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
+  if (!root) {
+    root = d3.select(rootSelector);
+  }
+  var column = getColumnFromBlocks(Object.assign({ blocks }, initialColumn));
   var codeBlocks = root.selectAll('.code-block').data(column);
   codeBlocks.exit().remove();
 
@@ -33,35 +37,21 @@ function renderCodeColumn({ rootSelector, initialColumn, blocks }) {
 
   var retainedUnits = newUnits.merge(units);
   retainedUnits.attr('id', getUnitId);
+  retainedUnits.classed('expandable', accessor('expand'));
+  retainedUnits
+    .filter(accessor('expand'))
+    .on('click', onExpandClick)
+    .append('section')
+    .classed('expand-root', true);
   retainedUnits.select('.unit-text').text(accessor('text'));
   retainedUnits.select('.unit-note').text(accessor('note'));
-}
 
-function getColumn({ file, lines, blocks }) {
-  var blockStartIndex = -1;
-  var blockEndIndex = -1;
-
-  for (let j = 0; j < blocks.length && blockEndIndex === -1; ++j) {
-    let annotatedLines = blocks[j].annotatedLines;
-    for (let i = 0; i < annotatedLines.length; ++i) {
-      let annotation = annotatedLines[i];
-      if (annotation.file === file) {
-        if (blockStartIndex === -1) {
-          if (annotation.lineNumber === lines[0]) {
-            blockStartIndex = j;
-          }
-        }
-        if (annotation.lineNumber === lines[1]) {
-          blockEndIndex = j + 1;
-          break;
-        }
-      }
-    }
-  }
-  if (blockEndIndex > blockStartIndex) {
-    return blocks.slice(blockStartIndex, blockEndIndex);
-  } else {
-    return [];
+  function onExpandClick(unit) {
+    callNextTick(renderCodeColumn, {
+      root: d3.select(this).select('.expand-root'),
+      initialColumn: unit.expand,
+      blocks
+    });
   }
 }
 
