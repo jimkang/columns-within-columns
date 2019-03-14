@@ -32,8 +32,9 @@ function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
     .enter()
     .append('div')
     .classed('code-unit', true);
-  newUnits.append('pre').classed('unit-text', true);
-  newUnits.append('div').classed('unit-note', true);
+  var mainRows = newUnits.append('div').classed('main-row', true);
+  mainRows.append('pre').classed('unit-text', true);
+  mainRows.append('div').classed('unit-note', true);
 
   var retainedUnits = newUnits.merge(units);
   retainedUnits.attr('id', getUnitId);

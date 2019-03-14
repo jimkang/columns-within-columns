@@ -45,20 +45,31 @@ button {
   display: flex;
 }
 
-.block-note {
+.block-note,.unit-note {
   background-color: #ddd;
+  padding: 0.5em;
 }
 
-.code-unit {
+.block-note:empty,.unit-note:empty {
+  background-color: transparent;
+}
+
+.code-unit .main-row {
   display: flex;
 }
 
 .unit-text {
   margin: 0;
+  width: 50%;
 }
 
 .unit-note {
-  padding: 0.5em;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.unit-note:empty {
+  padding: 0;
 }
 
 .instruction {
@@ -76,7 +87,7 @@ button {
   cursor: pointer;
 }
 
-.expandable::after {
+.expandable > .main-row::after {
   content: '↕';
 }
 
