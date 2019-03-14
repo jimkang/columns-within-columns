@@ -32,6 +32,7 @@ function renderCodeColumn({ rootSelector, initialColumn, blocks }) {
   newUnits.append('div').classed('unit-note', true);
 
   var retainedUnits = newUnits.merge(units);
+  retainedUnits.attr('id', getUnitId);
   retainedUnits.select('.unit-text').text(accessor('text'));
   retainedUnits.select('.unit-note').text(accessor('note'));
 }
@@ -62,6 +63,10 @@ function getColumn({ file, lines, blocks }) {
   } else {
     return [];
   }
+}
+
+function getUnitId(unit) {
+  return `${unit.file}-L${unit.lineNumber}`;
 }
 
 module.exports = renderCodeColumn;
