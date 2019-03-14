@@ -6,12 +6,16 @@ var minimist = require('minimist');
 
 const annotationMarker = '//||';
 
-var { file, linebreak } = minimist(process.argv.slice(2));
+var { file, linebreak, trail, skipTrailOnLastLine } = minimist(
+  process.argv.slice(2)
+);
 if (!file) {
   console.log(
     `Usage: node parse-source-file.js --file <source file>
   [--linebreak crlf]
-  > <new projects file>`
+  [--trail ,]
+  [--skipTrailOnLastLine yes]
+  > <objects file>.ndjson`
   );
   process.exit();
 }
@@ -22,14 +26,26 @@ if (linebreak === 'crlf') {
 } else if (linebreak === 'cr') {
   delimiter = '\r';
 }
-console.log('delimiter', delimiter);
 
 var filename = path.basename(file);
 
 var fileContents = fs.readFileSync(file, { encoding: 'utf8' });
 var lines = fileContents.split(delimiter);
 var lineObjects = lines.map(getObjectForLine);
-console.log(lineObjects);
+// Print as line-delimited JSON.
+// If necessary, these could stream to stdout instead of
+// pooling, then printing at the end.
+console.log(lineObjects.map(stringify).join('\n'));
+
+function stringify(obj, i, objects) {
+  var s = JSON.stringify(obj);
+  if (trail) {
+    if (!skipTrailOnLastLine || i !== objects.length - 1) {
+      s += trail;
+    }
+  }
+  return s;
+}
 
 function getObjectForLine(line, i, lines) {
   var text = line;
