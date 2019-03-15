@@ -30,6 +30,7 @@
   "dependencies": {
     "accessor": "^2.0.0",
     "call-next-tick": "^2.0.1",
+    "csscrown": "^1.0.0",
     "d3-selection": "^1.4.0",
     "lodash.curry": "^4.1.1"
   }

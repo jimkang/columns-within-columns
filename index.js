@@ -2,6 +2,10 @@ var d3 = require('d3-selection');
 var getColumnFromBlocks = require('./get-column-from-blocks');
 var callNextTick = require('call-next-tick');
 var accessor = require('accessor')();
+var Crown = require('csscrown');
+var crown = Crown({
+  crownClass: 'selected-unit'
+});
 
 function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
   if (!root) {
@@ -31,7 +35,8 @@ function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
   var newUnits = units
     .enter()
     .append('div')
-    .classed('code-unit', true);
+    .classed('code-unit', true)
+    .on('click', onClickUnit);
   var mainRows = newUnits.append('div').classed('main-row', true);
   mainRows.append('pre').classed('unit-text', true);
   mainRows.append('div').classed('unit-note', true);
@@ -58,6 +63,10 @@ function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
 
 function getUnitId(unit) {
   return `${unit.file}-L${unit.lineNumber}`;
+}
+
+function onClickUnit() {
+  crown(this);
 }
 
 module.exports = renderCodeColumn;

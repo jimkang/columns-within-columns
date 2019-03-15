@@ -72,6 +72,11 @@ button {
   padding: 0;
 }
 
+.selected-unit {
+  background-color: hsl(60, 80%, 60%);
+  border: 2px dashed #444;
+}
+
 .instruction {
   font-style: italic;
   margin: 1em;
