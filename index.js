@@ -58,13 +58,17 @@ function renderCodeColumn({
     .classed('next-button', true)
     .text('Next')
     .on('click', onClickNext);
+  mainRows
+    .append('button')
+    .classed('expand-button', true)
+    .text('↕')
+    .on('click', onClickExpand);
 
   var retainedUnits = newUnits.merge(units);
   retainedUnits.attr('id', getUnitId);
   retainedUnits.classed('expandable', accessor('expand'));
   retainedUnits
     .filter(accessor('expand'))
-    .on('click', onExpandClick)
     .append('section')
     .classed('expand-root', true);
   retainedUnits.select('.unit-text').html(convertUnitText);
@@ -74,19 +78,28 @@ function renderCodeColumn({
     crown(retainedUnits.node());
   }
 
-  function onExpandClick(unit) {
+  // Expects to be called with `this` set to a child of
+  // a .code-unit element.
+  function onClickExpand(unit) {
     d3.event.stopPropagation();
-    var root = d3.select(this).select('.expand-root');
-    // Expand if this is not already expanded; collapse otherwise.
-    if (root.select('.code-unit').empty()) {
-      callNextTick(renderCodeColumn, {
-        root,
-        initialColumn: unit.expand,
-        blocks,
-        selectFirstUnit: true
-      });
+    let codeUnitEl = findParentWithClass(this, 'code-unit');
+    if (codeUnitEl) {
+      var root = d3.select(codeUnitEl).select('.expand-root');
+      // Expand if this is not already expanded; collapse otherwise.
+      if (root.select('.code-unit').empty()) {
+        callNextTick(renderCodeColumn, {
+          root,
+          initialColumn: unit.expand,
+          blocks,
+          selectFirstUnit: true
+        });
+      } else {
+        root.selectAll('*').remove();
+      }
     } else {
-      root.selectAll('*').remove();
+      console.error(
+        new Error('onClickExpand could not find parent code-unit.')
+      );
     }
   }
 
@@ -94,14 +107,7 @@ function renderCodeColumn({
     d3.event.stopPropagation();
     if (unit.expand) {
       let nextButtonEl = this;
-      let codeUnitEl = findParentWithClass(nextButtonEl, 'code-unit');
-      if (codeUnitEl) {
-        onExpandClick.bind(codeUnitEl)(unit);
-      } else {
-        console.error(
-          new Error('Next button could not find parent code-unit.')
-        );
-      }
+      onClickExpand.bind(nextButtonEl)(unit);
     } else if (unit.next) {
       let nextUnitEl = getClosestUnitElementAfter(unit.next);
       if (nextUnitEl) {
@@ -133,6 +139,7 @@ function getUnitId(unit) {
 }
 
 function onClickUnit() {
+  d3.event.stopPropagation();
   crown(this);
 }
 

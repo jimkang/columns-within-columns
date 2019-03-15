@@ -129,8 +129,21 @@ button {
   cursor: pointer;
 }
 
-.expandable > .main-row::after {
-  content: '↕';
+.main-row > .expand-button {
+  display: none;
+  position: absolute;
+  height: 0;
+  right: 0;
+}
+
+.expandable > .main-row > .expand-button {
+  display: block;
+  position: absolute;
+  height: 2em;
+}
+
+.expandable > .main-row > .next-button {
+  right: 44px; /* Make space for .expand-button. */
 }
 
 #code-root {
