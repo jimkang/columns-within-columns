@@ -14,7 +14,13 @@ var gtRegex = />/g;
 const tabInSpaces = '&nbsp;&nbsp;&nbsp;&nbsp;';
 const maxGetClosestTries = 5;
 
-function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
+function renderCodeColumn({
+  root,
+  rootSelector,
+  initialColumn,
+  blocks,
+  selectFirstUnit
+}) {
   if (!root) {
     root = d3.select(rootSelector);
   }
@@ -64,13 +70,24 @@ function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
   retainedUnits.select('.unit-text').html(convertUnitText);
   retainedUnits.select('.unit-note').text(accessor('note'));
 
+  if (selectFirstUnit) {
+    crown(retainedUnits.node());
+  }
+
   function onExpandClick(unit) {
     d3.event.stopPropagation();
-    callNextTick(renderCodeColumn, {
-      root: d3.select(this).select('.expand-root'),
-      initialColumn: unit.expand,
-      blocks
-    });
+    var root = d3.select(this).select('.expand-root');
+    // Expand if this is not already expanded; collapse otherwise.
+    if (root.select('.code-unit').empty()) {
+      callNextTick(renderCodeColumn, {
+        root,
+        initialColumn: unit.expand,
+        blocks,
+        selectFirstUnit: true
+      });
+    } else {
+      root.selectAll('*').remove();
+    }
   }
 
   function onClickNext(unit) {

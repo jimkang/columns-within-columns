@@ -118,7 +118,7 @@ button {
   right: 0;
 }
 
-.selected-unit .next-button {
+.selected-unit > .main-row > .next-button {
   visibility: visible;
   height: 2em;
   background-color: hsla(0, 0%, 100%, 0.5);
