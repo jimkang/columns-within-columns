@@ -1,11 +1,14 @@
 body {
   font-size: 18pt;
   font-family: sans-serif;
-  background-color: #fff;
+  background-color: #ccc;
   color: #666;
   margin-bottom: 2em;
   margin-left: 2em;
   margin-right: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hidden {
@@ -43,6 +46,9 @@ button {
 
 .code-block {
   display: flex;
+  background-color: #eee;
+  padding: 1em;
+  border: 1px #aaa solid;
 }
 
 .block-note,.unit-note {
@@ -71,11 +77,13 @@ button {
 
 .code-unit .main-row {
   display: flex;
+  align-items: center;
 }
 
 .unit-text {
   margin: 0;
   width: 50%;
+  height: 1.1em;
 }
 
 .unit-note {
@@ -85,6 +93,7 @@ button {
 
 .unit-note:empty {
   padding: 0;
+  height: 0;
 }
 
 .selected-unit {
@@ -104,10 +113,12 @@ button {
 .next-button {
   min-width: 4em;
   visibility: hidden;
+  height: 0;
 }
 
 .selected-unit .next-button {
   visibility: visible;
+  height: 2em;
 }
 
 .expandable {
@@ -117,6 +128,11 @@ button {
 
 .expandable > .main-row::after {
   content: '↕';
+}
+
+#code-root {
+  width: 60%;
+  min-width: 20em;
 }
 
 @media all and (max-height: 568px) {
