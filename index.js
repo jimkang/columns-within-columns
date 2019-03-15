@@ -1,10 +1,21 @@
 var d3 = require('d3-selection');
+var ease = require('d3-ease');
+var timer = require('d3-timer').timer;
 var getColumnFromBlocks = require('./get-column-from-blocks');
 var callNextTick = require('call-next-tick');
-var accessor = require('accessor')();
 var Crown = require('csscrown');
+var createSimpleScroll = require('simplescroll');
+
+var accessor = require('accessor')();
 var crown = Crown({
   crownClass: 'selected-unit'
+});
+
+var simpleScroll = createSimpleScroll({
+  d3,
+  easingFn: ease.easeCubicInOut,
+  timer,
+  root: document.body
 });
 
 var tabsRegex = /\t/g;
@@ -112,6 +123,7 @@ function renderCodeColumn({
       let nextUnitEl = getClosestUnitElementAfter(unit.next);
       if (nextUnitEl) {
         crown(nextUnitEl);
+        simpleScroll.scrollToElement(nextUnitEl, 400, 20);
       }
     }
   }

@@ -31,7 +31,10 @@
     "accessor": "^2.0.0",
     "call-next-tick": "^2.0.1",
     "csscrown": "^1.0.0",
+    "d3-ease": "^1.0.5",
     "d3-selection": "^1.4.0",
-    "lodash.curry": "^4.1.1"
+    "d3-timer": "^1.0.9",
+    "lodash.curry": "^4.1.1",
+    "simplescroll": "^2.1.3"
   }
 }
