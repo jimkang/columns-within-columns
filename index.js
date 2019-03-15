@@ -12,6 +12,7 @@ var ltRegex = /</g;
 var gtRegex = />/g;
 
 const tabInSpaces = '&nbsp;&nbsp;&nbsp;&nbsp;';
+const maxGetClosestTries = 5;
 
 function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
   if (!root) {
@@ -64,30 +65,72 @@ function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
   retainedUnits.select('.unit-note').text(accessor('note'));
 
   function onExpandClick(unit) {
+    d3.event.stopPropagation();
     callNextTick(renderCodeColumn, {
       root: d3.select(this).select('.expand-root'),
       initialColumn: unit.expand,
       blocks
     });
   }
+
+  function onClickNext(unit) {
+    d3.event.stopPropagation();
+    if (unit.expand) {
+      let nextButtonEl = this;
+      let codeUnitEl = findParentWithClass(nextButtonEl, 'code-unit');
+      if (codeUnitEl) {
+        onExpandClick.bind(codeUnitEl)(unit);
+      } else {
+        console.error(
+          new Error('Next button could not find parent code-unit.')
+        );
+      }
+    } else if (unit.next) {
+      let nextUnitEl = getClosestUnitElementAfter(unit.next);
+      if (nextUnitEl) {
+        crown(nextUnitEl);
+      }
+    }
+  }
+}
+
+function getClosestUnitElementAfter({ file, line }) {
+  for (var i = 0; i < maxGetClosestTries; ++i) {
+    let unitId = getUnitId({ file, lineNumber: line + i });
+    var unitEl = document.getElementById(unitId);
+    if (unitEl) {
+      return unitEl;
+    }
+  }
 }
 
 function getUnitId(unit) {
-  return `${unit.file}-L${unit.lineNumber}`;
+  var lineNumber = unit.lineNumber;
+  if (isNaN(lineNumber)) {
+    lineNumber = unit.line;
+  }
+  if (isNaN(lineNumber)) {
+    lineNumber = 0;
+  }
+  return `${unit.file}-L${lineNumber}`;
 }
 
 function onClickUnit() {
   crown(this);
 }
 
-function onClickNext(unit) {
-  console.log('clicked', unit);
-}
-
 function convertUnitText(unit) {
   var text = unit.text.replace(tabsRegex, tabInSpaces);
   text = text.replace(ltRegex, '&lt;');
   return text.replace(gtRegex, '&gt;');
+}
+
+function findParentWithClass(el, className) {
+  var target = el;
+  do {
+    target = target.parentElement;
+  } while (target && !target.classList.contains(className));
+  return target;
 }
 
 module.exports = renderCodeColumn;
