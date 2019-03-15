@@ -7,6 +7,12 @@ var crown = Crown({
   crownClass: 'selected-unit'
 });
 
+var tabsRegex = /\t/g;
+var ltRegex = /</g;
+var gtRegex = />/g;
+
+const tabInSpaces = '&nbsp;&nbsp;&nbsp;&nbsp;';
+
 function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
   if (!root) {
     root = d3.select(rootSelector);
@@ -38,7 +44,7 @@ function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
     .classed('code-unit', true)
     .on('click', onClickUnit);
   var mainRows = newUnits.append('div').classed('main-row', true);
-  mainRows.append('pre').classed('unit-text', true);
+  mainRows.append('code').classed('unit-text', true);
   mainRows.append('div').classed('unit-note', true);
   mainRows
     .append('button')
@@ -54,7 +60,7 @@ function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
     .on('click', onExpandClick)
     .append('section')
     .classed('expand-root', true);
-  retainedUnits.select('.unit-text').text(accessor('text'));
+  retainedUnits.select('.unit-text').html(convertUnitText);
   retainedUnits.select('.unit-note').text(accessor('note'));
 
   function onExpandClick(unit) {
@@ -76,6 +82,12 @@ function onClickUnit() {
 
 function onClickNext(unit) {
   console.log('clicked', unit);
+}
+
+function convertUnitText(unit) {
+  var text = unit.text.replace(tabsRegex, tabInSpaces);
+  text = text.replace(ltRegex, '&lt;');
+  return text.replace(gtRegex, '&gt;');
 }
 
 module.exports = renderCodeColumn;

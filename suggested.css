@@ -78,16 +78,16 @@ button {
 .code-unit .main-row {
   display: flex;
   align-items: center;
+  /* Necessary for .next-button child to be positioned absolutely. */
+  position: relative;
 }
 
 .unit-text {
   margin: 0;
-  width: 50%;
-  height: 1.1em;
+  flex-grow: 1;
 }
 
 .unit-note {
-  width: 50%;
   box-sizing: border-box;
 }
 
@@ -114,11 +114,14 @@ button {
   min-width: 4em;
   visibility: hidden;
   height: 0;
+  position: absolute;
+  right: 0;
 }
 
 .selected-unit .next-button {
   visibility: visible;
   height: 2em;
+  background-color: hsla(0, 0%, 100%, 0.5);
 }
 
 .expandable {
@@ -132,7 +135,7 @@ button {
 
 #code-root {
   width: 60%;
-  min-width: 20em;
+  min-width: 40em;
 }
 
 @media all and (max-height: 568px) {
