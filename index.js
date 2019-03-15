@@ -40,6 +40,11 @@ function renderCodeColumn({ root, rootSelector, initialColumn, blocks }) {
   var mainRows = newUnits.append('div').classed('main-row', true);
   mainRows.append('pre').classed('unit-text', true);
   mainRows.append('div').classed('unit-note', true);
+  mainRows
+    .append('button')
+    .classed('next-button', true)
+    .text('Next')
+    .on('click', onClickNext);
 
   var retainedUnits = newUnits.merge(units);
   retainedUnits.attr('id', getUnitId);
@@ -67,6 +72,10 @@ function getUnitId(unit) {
 
 function onClickUnit() {
   crown(this);
+}
+
+function onClickNext(unit) {
+  console.log('clicked', unit);
 }
 
 module.exports = renderCodeColumn;

@@ -36,7 +36,7 @@ button {
   border-width: 1px;
   border-color: #aaa;
   border-style: solid;
-  font-family: futura;
+  font-family: futura, sans-serif;
   min-width: 44px;
   box-shadow: #444 0 0 4px;
 }
@@ -52,6 +52,21 @@ button {
 
 .block-note:empty,.unit-note:empty {
   background-color: transparent;
+}
+
+.block-note {
+  margin-left: 1em;
+}
+
+.code-unit {
+  /* This is here so that when it
+ * is selected and gets .selected-unit,
+ * which puts a 2px border on, the size
+ * of the space available inside of
+ * .code-unit does not change, causing
+ * a shifting to the write of the text
+ * within .unit-text. */
+  border: 2px dashed transparent;
 }
 
 .code-unit .main-row {
@@ -77,14 +92,22 @@ button {
   border: 2px dashed #444;
 }
 
+.selected-unit .unit-text {
+}
+
 .instruction {
   font-style: italic;
   margin: 1em;
   text-align: center;
 }
 
-#next-button {
-  display: fixed;
+.next-button {
+  min-width: 4em;
+  visibility: hidden;
+}
+
+.selected-unit .next-button {
+  visibility: visible;
 }
 
 .expandable {
