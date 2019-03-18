@@ -180,6 +180,10 @@ function onClickUnit() {
 function convertUnitText(unit) {
   var text = unit.text.replace(tabsRegex, tabInSpaces);
   text = text.replace(ltRegex, '&lt;');
+  if (text === '') {
+    // Avoid rendering just-linebreak lines as 0-height.
+    text = '&nbsp;';
+  }
   return text.replace(gtRegex, '&gt;');
 }
 
