@@ -120,7 +120,7 @@ button {
 
 .selected-unit > .main-row > .next-button {
   visibility: visible;
-  height: 2em;
+  height: 4em;
   background-color: hsla(0, 0%, 100%, 0.5);
 }
 
