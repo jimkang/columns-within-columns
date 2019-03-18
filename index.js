@@ -5,6 +5,7 @@ var getColumnFromBlocks = require('./get-column-from-blocks');
 var callNextTick = require('call-next-tick');
 var Crown = require('csscrown');
 var createSimpleScroll = require('simplescroll');
+var StrokeRouter = require('strokerouter');
 
 var accessor = require('accessor')();
 var crown = Crown({
@@ -17,6 +18,8 @@ var simpleScroll = createSimpleScroll({
   timer,
   root: document.body
 });
+
+var docStrokeRouter = StrokeRouter(document);
 
 var tabsRegex = /\t/g;
 var ltRegex = /</g;
@@ -32,6 +35,8 @@ function renderCodeColumn({
   blocks,
   selectFirstUnit
 }) {
+  docStrokeRouter.routeKeyUp('n', null, onNextKeyUp);
+
   if (!root) {
     root = d3.select(rootSelector);
   }
@@ -67,7 +72,7 @@ function renderCodeColumn({
   mainRows
     .append('button')
     .classed('next-button', true)
-    .text('Next')
+    .html('<u>N</u>ext')
     .on('click', onClickNext);
   mainRows
     .append('button')
@@ -95,35 +100,52 @@ function renderCodeColumn({
     d3.event.stopPropagation();
     let codeUnitEl = findParentWithClass(this, 'code-unit');
     if (codeUnitEl) {
-      var root = d3.select(codeUnitEl).select('.expand-root');
-      // Expand if this is not already expanded; collapse otherwise.
-      if (root.select('.code-unit').empty()) {
-        callNextTick(renderCodeColumn, {
-          root,
-          initialColumn: unit.expand,
-          blocks,
-          selectFirstUnit: true
-        });
-      } else {
-        root.selectAll('*').remove();
-      }
+      expandUnitToColumn(unit, codeUnitEl);
+    }
+  }
+
+  function expandUnitToColumn(unit, codeUnitEl) {
+    var root = d3.select(codeUnitEl).select('.expand-root');
+    // Expand if this is not already expanded; collapse otherwise.
+    if (root.select('.code-unit').empty()) {
+      callNextTick(renderCodeColumn, {
+        root,
+        initialColumn: unit.expand,
+        blocks,
+        selectFirstUnit: true
+      });
     } else {
-      console.error(
-        new Error('onClickExpand could not find parent code-unit.')
-      );
+      root.selectAll('*').remove();
     }
   }
 
   function onClickNext(unit) {
     d3.event.stopPropagation();
+    showNext(unit, this);
+  }
+
+  function onNextKeyUp() {
+    var selectedUnit = d3.select('.selected-unit');
+    if (!selectedUnit.empty()) {
+      showNext(selectedUnit.datum(), selectedUnit.node());
+    }
+  }
+
+  function showNext(unit, nextButtonEl) {
     if (unit.expand) {
-      let nextButtonEl = this;
-      onClickExpand.bind(nextButtonEl)(unit);
+      let codeUnitEl = findParentWithClass(nextButtonEl, 'code-unit');
+      if (codeUnitEl) {
+        expandUnitToColumn(unit, codeUnitEl);
+      }
     } else if (unit.next) {
       let nextUnitEl = getClosestUnitElementAfter(unit.next);
       if (nextUnitEl) {
         crown(nextUnitEl);
-        simpleScroll.scrollToElement(nextUnitEl, 400, 20);
+        if (!simpleScroll.isStillScrolling()) {
+          simpleScroll.scrollToElement(nextUnitEl, 400, 20);
+        }
+        // else: Nothing needs to be done. It'll scroll the
+        // next time the user goes to the next line.
       }
     }
   }
@@ -163,9 +185,9 @@ function convertUnitText(unit) {
 
 function findParentWithClass(el, className) {
   var target = el;
-  do {
+  while (target && !target.classList.contains(className)) {
     target = target.parentElement;
-  } while (target && !target.classList.contains(className));
+  }
   return target;
 }
 

@@ -35,6 +35,7 @@
     "d3-selection": "^1.4.0",
     "d3-timer": "^1.0.9",
     "lodash.curry": "^4.1.1",
-    "simplescroll": "^2.1.3"
+    "simplescroll": "^2.1.3",
+    "strokerouter": "^2.0.0"
   }
 }
