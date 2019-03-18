@@ -8,8 +8,14 @@ var createSimpleScroll = require('simplescroll');
 var StrokeRouter = require('strokerouter');
 
 var accessor = require('accessor')();
-var crown = Crown({
+var crownUnit = Crown({
   crownClass: 'selected-unit'
+});
+var crownBlock = Crown({
+  crownClass: 'selected-block'
+});
+var crownOutermostParentOfExpandRoot = Crown({
+  crownClass: 'outermost-parent-of-expand-root'
 });
 
 var simpleScroll = createSimpleScroll({
@@ -91,7 +97,7 @@ function renderCodeColumn({
   retainedUnits.select('.unit-note').text(accessor('note'));
 
   if (selectFirstUnit) {
-    crown(retainedUnits.node());
+    selectUnit(retainedUnits.node());
   }
 
   // Expects to be called with `this` set to a child of
@@ -140,7 +146,7 @@ function renderCodeColumn({
     } else if (unit.next) {
       let nextUnitEl = getClosestUnitElementAfter(unit.next);
       if (nextUnitEl) {
-        crown(nextUnitEl);
+        selectUnit(nextUnitEl);
         if (!simpleScroll.isStillScrolling()) {
           simpleScroll.scrollToElement(nextUnitEl, 400, 20);
         }
@@ -174,7 +180,25 @@ function getUnitId(unit) {
 
 function onClickUnit() {
   d3.event.stopPropagation();
-  crown(this);
+  selectUnit(this);
+}
+
+function selectUnit(el) {
+  crownUnit(el);
+
+  var enclosingBlock = findParentWithClass(el, 'code-block');
+  if (enclosingBlock) {
+    crownBlock(enclosingBlock);
+
+    var expandRoot = findParentWithClass(el, 'expand-root');
+    if (expandRoot) {
+      let parentBlock = findOutermostParentWithClass(
+        enclosingBlock,
+        'code-block'
+      );
+      crownOutermostParentOfExpandRoot(parentBlock);
+    }
+  }
 }
 
 function convertUnitText(unit) {
@@ -192,6 +216,20 @@ function findParentWithClass(el, className) {
   while (target && !target.classList.contains(className)) {
     target = target.parentElement;
   }
+  return target;
+}
+
+function findOutermostParentWithClass(el, className) {
+  var target;
+  var parentEl = el;
+
+  do {
+    if (parentEl && parentEl.classList.contains(className)) {
+      target = parentEl;
+    }
+    parentEl = parentEl.parentElement;
+  } while (parentEl);
+
   return target;
 }
 

@@ -51,6 +51,21 @@ button {
   border: 1px #aaa solid;
 }
 
+.selected-block {
+  padding: 0;
+  border-top: 4px #999 solid;
+  border-bottom: 4px #999 solid;
+  background-color: white;
+}
+
+.selected-block {
+  border: 4px #999 solid;
+}
+
+.outermost-parent-of-expand-root {
+  padding: 0;
+}
+
 .block-note,.unit-note {
   background-color: #ddd;
   padding: 0.5em;
@@ -58,6 +73,9 @@ button {
 
 .block-note:empty,.unit-note:empty {
   background-color: transparent;
+  width: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .block-note {
