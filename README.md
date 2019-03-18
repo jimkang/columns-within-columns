@@ -3,6 +3,8 @@ columns-within-columns
 
 A module that will render code as columns within columns in an attempt to show how it is executed.
 
+![Columns-within-columns large animated gif](meta/Columns.gif)
+
 Installation
 ------------
 
