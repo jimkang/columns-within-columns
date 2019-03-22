@@ -35,19 +35,33 @@ const tabInSpaces = '&nbsp;&nbsp;&nbsp;&nbsp;';
 const maxGetClosestTries = 5;
 
 function renderCodeColumn({
+  columnsRootSelector,
   root,
-  rootSelector,
-  initialColumn,
+  columnNumber,
+  codeToShow,
   blocks,
-  selectFirstUnit
+  selectFirstUnit,
+  firstBlockY = 0
 }) {
   docStrokeRouter.routeKeyUp('n', null, onNextKeyUp);
 
+  var columnsRoot = d3.select(columnsRootSelector);
+  const columnId = 'column-' + columnNumber;
+
   if (!root) {
-    root = d3.select(rootSelector);
+    root = columnsRoot.select('#' + columnId);
+    if (root.empty()) {
+      root = columnsRoot
+        .append('section')
+        .classed('column', true)
+        .attr('id', columnId);
+    }
   }
-  var column = getColumnFromBlocks(Object.assign({ blocks }, initialColumn));
-  var codeBlocks = root.selectAll('.code-block').data(column);
+
+  var codeForColumn = getColumnFromBlocks(
+    Object.assign({ blocks }, codeToShow)
+  );
+  var codeBlocks = root.selectAll('.code-block').data(codeForColumn);
   codeBlocks.exit().remove();
 
   var newCodeBlocks = codeBlocks
@@ -59,6 +73,11 @@ function renderCodeColumn({
 
   var retainedCodeBlocks = newCodeBlocks.merge(codeBlocks);
   retainedCodeBlocks.select('.block-note').text(accessor('note'));
+
+  if (!retainedCodeBlocks.empty() && !isNaN(firstBlockY)) {
+    d3.select(retainedCodeBlocks.node()).style('margin-top', firstBlockY);
+  }
+
   var unitRoots = retainedCodeBlocks.select('.unit-root');
 
   var units = unitRoots
@@ -96,8 +115,10 @@ function renderCodeColumn({
   retainedUnits.select('.unit-text').html(convertUnitText);
   retainedUnits.select('.unit-note').text(accessor('note'));
 
-  if (selectFirstUnit) {
-    selectUnit(retainedUnits.node());
+  if (!retainedUnits.empty()) {
+    if (selectFirstUnit) {
+      selectUnit(retainedUnits.node());
+    }
   }
 
   // Expects to be called with `this` set to a child of
@@ -111,17 +132,19 @@ function renderCodeColumn({
   }
 
   function expandUnitToColumn(unit, codeUnitEl) {
-    var root = d3.select(codeUnitEl).select('.expand-root');
-    // Expand if this is not already expanded; collapse otherwise.
-    if (root.select('.code-unit').empty()) {
+    const expansionCol = columnsRoot.select('#column-' + (columnNumber + 1));
+    // Expand if not already expanded; collapse otherwise.
+    if (expansionCol.empty()) {
       callNextTick(renderCodeColumn, {
-        root,
-        initialColumn: unit.expand,
+        columnsRootSelector,
+        columnNumber: columnNumber + 1,
+        codeToShow: unit.expand,
         blocks,
-        selectFirstUnit: true
+        selectFirstUnit: true,
+        firstBlockY: codeUnitEl.getBoundingClientRect().top + window.scrollY
       });
     } else {
-      root.selectAll('*').remove();
+      expansionCol.remove();
     }
   }
 

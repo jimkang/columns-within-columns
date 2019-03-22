@@ -164,9 +164,13 @@ button {
   right: 44px; /* Make space for .expand-button. */
 }
 
-#code-root {
+.column {
   width: 60%;
   min-width: 40em;
+}
+
+#columns-root {
+  display: flex;
 }
 
 @media all and (max-height: 568px) {

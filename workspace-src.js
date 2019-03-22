@@ -3,8 +3,9 @@ var blocks = require('./meta/rogue.json');
 
 (function go() {
   renderCodeColumn({
-    rootSelector: '#code-root',
-    initialColumn: { file: 'main.c', lines: [40, 70] },
+    columnsRootSelector: '#columns-root',
+    columnNumber: 0,
+    codeToShow: { file: 'main.c', lines: [40, 70] },
     blocks
   });
 })();
