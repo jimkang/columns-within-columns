@@ -70,6 +70,14 @@ button {
 .block-title {
   width: 100%;
   flex-grow: 1;
+  border-bottom: 2px solid #42a29cf2;
+  margin-bottom: 0.5em;
+  /*! background-color: cadetblue; */
+}
+
+.unit-root {
+  width: 50%;
+  flex-grow: 1;
 }
 
 .block-note,.unit-note {
@@ -86,6 +94,9 @@ button {
 
 .block-note {
   margin-left: 1em;
+  width: 15em;
+  /*! box-sizing: border-box; */
+  justify-self: flex-end;
 }
 
 .code-unit {
@@ -101,9 +112,10 @@ button {
 
 .code-unit .main-row {
   display: flex;
-  align-items: center;
+  /*! align-items: center; */
   /* Necessary for .next-button child to be positioned absolutely. */
   position: relative;
+  flex-direction: column-reverse;
 }
 
 .unit-text {
