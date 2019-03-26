@@ -6,6 +6,7 @@ var blocks = require('./meta/rogue.json');
     columnsRootSelector: '#columns-root',
     columnNumber: 0,
     codeToShow: { file: 'main.c', lines: [40, 70] },
+    selectFirstUnit: true,
     blocks
   });
 })();

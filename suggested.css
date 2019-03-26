@@ -66,6 +66,11 @@ button {
   padding: 0;
 }
 
+.block-title {
+  width: 100%;
+  flex-grow: 1;
+}
+
 .block-note,.unit-note {
   background-color: #ddd;
   padding: 0.5em;

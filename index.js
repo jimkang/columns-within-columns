@@ -6,6 +6,7 @@ var callNextTick = require('call-next-tick');
 var Crown = require('csscrown');
 var createSimpleScroll = require('simplescroll');
 var StrokeRouter = require('strokerouter');
+var pathExists = require('object-path-exists');
 
 var accessor = require('accessor')();
 var crownUnit = Crown({
@@ -68,10 +69,12 @@ function renderCodeColumn({
     .enter()
     .append('section')
     .classed('code-block', true);
+  newCodeBlocks.append('div').classed('block-title', true);
   newCodeBlocks.append('div').classed('unit-root', true);
   newCodeBlocks.append('div').classed('block-note', true);
 
   var retainedCodeBlocks = newCodeBlocks.merge(codeBlocks);
+  retainedCodeBlocks.select('.block-title').text(getTitleForBlock);
   retainedCodeBlocks.select('.block-note').text(accessor('note'));
 
   if (!retainedCodeBlocks.empty() && !isNaN(firstBlockY)) {
@@ -117,7 +120,9 @@ function renderCodeColumn({
 
   if (!retainedUnits.empty()) {
     if (selectFirstUnit) {
-      selectUnit(retainedUnits.node());
+      let firstUnitEl = retainedUnits.node();
+      selectUnit(firstUnitEl);
+      simpleScroll.scrollToElement(firstUnitEl, 400, 20);
     }
   }
 
@@ -254,6 +259,14 @@ function findOutermostParentWithClass(el, className) {
   } while (parentEl);
 
   return target;
+}
+
+// Warning: Will only work as long as blocks contain annotations that are all from a single file.
+function getTitleForBlock(block) {
+  if (pathExists(block, ['annotatedLines', '0', 'file'])) {
+    return block.annotatedLines[0].file;
+  }
+  return '';
 }
 
 module.exports = renderCodeColumn;
