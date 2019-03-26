@@ -2887,10 +2887,10 @@
   {"file":"main.c","lineNumber":47,"text":"\t{","next":{"line":48,"file":"main.c"}},
   {"file":"main.c","lineNumber":48,"text":"\t\tgoto PL;","next":{"line":62,"file":"main.c"}},
   {"file":"main.c","lineNumber":49,"text":"\t}","next":{"line":50,"file":"main.c"}},
-  {"file":"main.c","lineNumber":50,"text":"","next":{"line":51,"file":"main.c"}},
-  {"file":"main.c","lineNumber":51,"text":"\tfor (;;)","next":{"line":52,"file":"main.c"}},
-  {"file":"main.c","lineNumber":52,"text":"\t{","next":{"line":53,"file":"main.c"}}]},
+  {"file":"main.c","lineNumber":50,"text":"","next":{"line":51,"file":"main.c"}}]},
 {"annotatedLines":[
+  {"file":"main.c","lineNumber":52,"text":"\tfor (;;)","next":{"line":53,"file":"main.c"}},
+  {"file":"main.c","lineNumber":53,"text":"\t{","next":{"line":54,"file":"main.c"}},
   {"file":"main.c","lineNumber":54,"text":"\t\tclear_level();","next":{"line":55,"file":"main.c"}},
   {"file":"main.c","lineNumber":55,"text":"\t\tmake_level();","next":{"line":56,"file":"main.c"}},
   {"file":"main.c","lineNumber":56,"text":"\t\tput_objects();","next":{"line":57,"file":"main.c"}},
@@ -2898,11 +2898,11 @@
   {"file":"main.c","lineNumber":58,"text":"\t\tadd_traps();","next":{"line":59,"file":"main.c"}},
   {"file":"main.c","lineNumber":59,"text":"\t\tput_mons();","next":{"line":60,"file":"main.c"}},
   {"file":"main.c","lineNumber":60,"text":"\t\tput_player(party_room);","next":{"line":61,"file":"main.c"}},
-  {"file":"main.c","lineNumber":61,"text":"\t\tprint_stats(STAT_ALL);","next":{"line":62,"file":"main.c"}}],"note":"Make all the things that go in the map."},
+  {"file":"main.c","lineNumber":61,"text":"\t\tprint_stats(STAT_ALL);","next":{"line":62,"file":"main.c"}},
+  {"file":"main.c","lineNumber":62,"text":"PL:\t\t","next":{"line":63,"file":"main.c"}},
+  {"file":"main.c","lineNumber":63,"text":"\t\tplay_level(); ","expand":
+  {"file":"play.c","lines":[152,406]},"note":"This is the inner loop that handles interaction with the level.","next":{"line":64,"file":"main.c"}}],"note":"We are in main(), the first function that runs in all C programs. Rogue uses its main() to do some housekeeping and then set up its main outer loop, which sets up a level and everything that goes with it, lets the player play that level (another loop)."},
 {"annotatedLines":[
-  {"file":"main.c","lineNumber":63,"text":"PL:\t\t","next":{"line":64,"file":"main.c"}},
-  {"file":"main.c","lineNumber":64,"text":"\t\tplay_level(); ","expand":
-  {"file":"play.c","lines":[152,406]},"note":"Now, allow them all to interact.","next":{"line":65,"file":"main.c"}},
   {"file":"main.c","lineNumber":65,"text":"\t\tfree_stuff(&level_objects);","next":{"line":66,"file":"main.c"}},
   {"file":"main.c","lineNumber":66,"text":"\t\tfree_stuff(&level_monsters);","next":{"line":67,"file":"main.c"}},
   {"file":"main.c","lineNumber":67,"text":"\t}","next":{"line":51,"file":"main.c"}},
